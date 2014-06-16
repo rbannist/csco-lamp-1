@@ -21,8 +21,10 @@ ENV APACHE_RUN_DIR /var/run/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 
 CMD ["rm /var/www/html/index.html"]
+CMD ["rm /etc/apache2/apache2.conf"]
 
 ADD index.html /var/www/index.html
+ADD apache2.conf /etc/apache2/apache2.conf
 
 # CMD ["sudo apache2ctl start"]
 CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
